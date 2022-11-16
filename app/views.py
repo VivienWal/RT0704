@@ -8,3 +8,7 @@ def home():
 @app.route('/template')
 def template():
     return render_template('home.html')
+
+@app.route('/json')
+def json():
+    return render_template('video.json')
