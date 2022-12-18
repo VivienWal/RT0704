@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import render_template
 import json as j
+import requests
 
 app = Flask(__name__)
 
@@ -17,10 +18,12 @@ def json():
     return render_template('video.json')
 
 @app.route('/movies')
-def movies():
-    f = open('video.json')
-    data = j.load(f)
-    movies = data['films']
+def displaymovies() :
+    reponse = requests.get ('http://api:5000/movies')
+    print(reponse.text)
+    movies = reponse.json()
+
+
     return render_template('movies.html',movies=movies)
 
 

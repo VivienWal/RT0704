@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+  api:
+    container_name: api
+    build:
+      context: ./service/api
+      dockerfile: Dockerfile
+    volumes:
+      - ./service/api:/var/www/api
+    ports:
+      - '5000:5000'
+    command :
+      sh -c 'flask --debug --app api.py run --host=0.0.0.0'
+
+  app:
+    container_name: app
+    build:
+      context: ./service/app
+      dockerfile: Dockerfile
+    volumes:
+      - ./service/app:/var/www/app
+    ports:
+      - '56733:9007'  
+    links :
+      - api
+    command :
+      sh -c 'python3 app.py'

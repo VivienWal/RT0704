@@ -1,0 +1,23 @@
+{
+    "proprietaire": {
+        "nom": "Walgraevens",
+        "prenom": "Vivien"
+    },
+    "dernere_modif": "18/12/2022",
+    "films": [
+        {
+            "titre": "",
+            "annee": 0,
+            "realisateur": {
+                "nom": "",
+                "prenom": ""
+            },
+            "acteurs": [
+                {
+                    "nom": "Jean",
+                    "prenom": "duterrin"
+                }
+            ]
+        }
+    ]
+}
