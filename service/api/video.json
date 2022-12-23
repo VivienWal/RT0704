@@ -3,19 +3,37 @@
         "nom": "Walgraevens",
         "prenom": "Vivien"
     },
-    "dernere_modif": "18/12/2022",
+    "dernere_modif": "23/12/2022",
     "films": [
         {
-            "titre": "",
-            "annee": 0,
+            "titre": "test",
+            "annee": 1990,
             "realisateur": {
-                "nom": "",
-                "prenom": ""
+                "nom": "jean",
+                "prenom": "pierre"
             },
             "acteurs": [
                 {
-                    "nom": "Jean",
-                    "prenom": "duterrin"
+                    "nom": "troll",
+                    "prenom": "loulilou"
+                }
+            ]
+        },
+        {
+            "titre": "test",
+            "annee": 1990,
+            "realisateur": {
+                "nom": "jean",
+                "prenom": "pierre"
+            },
+            "acteurs": [
+                {
+                    "nom": "troll",
+                    "prenom": "loulilou"
+                },
+                {
+                    "nom": "trol2l",
+                    "prenom": "loulilo2u"
                 }
             ]
         }
