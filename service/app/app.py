@@ -3,11 +3,25 @@ from flask import render_template
 import json as j
 import requests
 
-app = Flask(__name__)
+
+
+app = Flask(__name__,
+            static_url_path='', 
+            static_folder='static',
+            template_folder='templates')
+
+
 
 @app.route('/')
 def home():
-    return "Hello world!"
+    response = requests.get('http://10.11.5.177:5000/api/v1/film')
+    response2 = requests.get('http://10.11.5.177:5000/api/v1/proprietaire')
+    response3 = requests.get('http://10.11.5.177:5000/api/v1/information')
+    film = response.json()
+    proprietaire = response2.json()
+    information = response3.text
+    
+    return render_template('index.html',test=film,test2=proprietaire,test3=information)
 
 @app.route('/template')
 def template():
