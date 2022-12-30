@@ -389,7 +389,15 @@
                     //var acteur_prenom = $("#acteur_prenom").val();
                     //console.log(acteur_prenom);
                     var elem_nom = document.getElementsByClassName('acteur_ajout_nom');
+                    for(var x=0; x < elem_nom.length; x++)
+                    {
+                      console.log(elem_nom[x].value)
+                    }
                     var elem_prenom = document.getElementsByClassName('acteur_ajout_prenom');
+                    for(var x=0; x < elem_prenom.length; x++)
+                    {
+                      console.log(elem_prenom[x].value)
+                    }
                     var data = 
                         {"ajout":{
                             'titre': titre,
@@ -398,23 +406,9 @@
                                 "nom":realisateur_nom,
                                 "prenom":realisateur_prenom
                             },
-                            "acteurs":[]}
+                            "acteurs":[{"nom":acteur_nom,"prenom":acteur_prenom}]}
                         };
-                    console.log("test");
                     console.log(data);
-                    console.log("test2");
-                    console.log(data["ajout"]["acteurs"]);
-                    for(var x=0; x < elem_nom.length; x++)
-                    {
-                      acteur = [{
-                        "nom" : elem_nom[x].value,
-                        "prenom" : elem_prenom[x].value
-                    },
-                ]
-                      console.log(elem_nom[x].value)
-                      console.log(elem_prenom[x].value)
-                      data["ajout"]["acteurs"].append(acteur);
-                    }
     
                     /* $.ajax({
                         url: 'http://10.11.5.177:5000/api/v1/film',

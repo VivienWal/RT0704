@@ -80,6 +80,19 @@
   }
 }
 
+.modif-form{
+  display:none;
+}
+
+#form_ajout{
+  display:none;
+}
+
+#table_recherche{
+  display:none;
+}
+
+
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);

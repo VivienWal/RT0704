@@ -1,0 +1,55 @@
+{
+    "proprietaire": {
+        "nom": "Walgraevens",
+        "prenom": "Vivien"
+    },
+    "dernere_modif": "29/12/2022",
+    "films": [
+        {
+            "titre": "te2AAA",
+            "annee": "130",
+            "realisateur": {
+                "nom": "jean",
+                "prenom": "pierre"
+            },
+            "acteurs": [
+                {
+                    "nom": "troll",
+                    "prenom": "loulilou"
+                }
+            ]
+        },
+        {
+            "titre": "AAAAAAAAAAAAAAAA",
+            "annee": "3333333333333333333",
+            "realisateur": {
+                "nom": "JJJJJJJJJJJJJJJJJJJJJJJJ",
+                "prenom": "AAAAAAAAAAAAAA"
+            },
+            "acteurs": [
+                {
+                    "nom": "BBBBB",
+                    "prenom": "louliBBBBBBBBBBBBBBB"
+                }
+            ]
+        },
+        {
+            "titre": "teRRRRR4",
+            "annee": 430,
+            "realisateur": {
+                "nom": "jean",
+                "prenom": "pierre"
+            },
+            "acteurs": [
+                {
+                    "nom": "troll",
+                    "prenom": "loulilou"
+                },
+                {
+                    "nom": "trol2l",
+                    "prenom": "loulilo2u"
+                }
+            ]
+        }
+    ]
+}

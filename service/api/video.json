@@ -1,43 +1,35 @@
 {
     "proprietaire": {
-        "nom": "Walgraevens",
-        "prenom": "Vivien"
+        "nom": "tessst",
+        "prenom": "terrra"
     },
-    "dernere_modif": "28/12/2022",
+    "dernere_modif": "30/12/2022",
     "films": [
         {
-            "titre": "test4",
-            "annee": 1990,
+            "titre": "test",
+            "annee": "1234",
             "realisateur": {
                 "nom": "jean",
-                "prenom": "pierre"
+                "prenom": "terrre"
             },
             "acteurs": [
                 {
-                    "nom": "trollllll",
-                    "prenom": "loulilou"
-                },
-                {
-                    "nom": "trol2lllll",
-                    "prenom": "loulilo2u"
+                    "nom": "bonjour",
+                    "prenom": "leng"
                 }
             ]
         },
         {
-            "titre": "test4444",
-            "annee": 1990,
+            "titre": "",
+            "annee": "",
             "realisateur": {
-                "nom": "jean",
-                "prenom": "pierre"
+                "nom": "",
+                "prenom": ""
             },
             "acteurs": [
                 {
-                    "nom": "trollllll",
-                    "prenom": "loulilou"
-                },
-                {
-                    "nom": "trol2lllll",
-                    "prenom": "loulilo2u"
+                    "nom": "",
+                    "prenom": ""
                 }
             ]
         }

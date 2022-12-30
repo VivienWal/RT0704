@@ -40,17 +40,17 @@ def information():
         information = data['dernere_modif']
         return information
 
-@app.route('/sup',methods=['DELETE'])
+@app.route('/api/v1/supvideotheque',methods=['DELETE'])
 
-def sup() :
+def supvideotheque() :
     os.remove('video.json')
     return 'succes'
 
 #@app.post ou app.get
 
-@app.route('/add', methods=['POST'])
+@app.route('/api/v1/videotheque', methods=['POST'])
 
-def add() :
+def videotheque() :
     if not (request.is_json and "proprio" in request.json.keys() and "nom" in request.json["proprio"].keys() and "prenom" in request.json["proprio"].keys()) : 
         abort(400)   
     if os.path.isfile('video.json') :
