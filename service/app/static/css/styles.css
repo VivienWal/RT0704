@@ -92,6 +92,15 @@
   display:none;
 }
 
+#table_recherche_acteur{
+  display:none;
+}
+
+.film_tbody{
+  display:none;
+}
+
+
 
 body {
   margin: 0;

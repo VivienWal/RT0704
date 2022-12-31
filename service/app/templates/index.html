@@ -16,8 +16,9 @@
         <!-- link href="css/styles.css" rel="stylesheet" /-->
         <link rel="stylesheet" href="css/styles.css">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://kit.fontawesome.com/3b509e4bc6.js" crossorigin="anonymous"></script>
     </head>
-    
+
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -69,13 +70,16 @@
             <div class="container px-4 px-lg-5">
                 <!-- Featured Project Row-->
                 <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
-                
-                <button class="sup-video-button" data-titre="">supprimer videotheque</button>
-                  
+
+                    <hr size="14">
+                    <h4> Suppresion Videotheque : <a class="sup-video-button" data-titre=""><i class="fa-solid fa-file-excel"></i></a>
+                    <hr size="14">
+
                 {% block movies %}
                     <h1>Vidéothèque : {{test2.nom}} {{test2.prenom}}</h1>
                     <h3>Dernière modification : {{test3}}</h3>
-                    <h4> Ajoute de Film : <button onclick = "open_form_ajout();" data-titre="">Ajouter</button> </h4>
+                    <hr size="12">
+                    <h4> Ajoute de Film : <a href="#form_ajout" onclick = "open_form_ajout();" data-titre=""><i class="fa-solid fa-film"></i></a> </h4>
                     <hr size="12">
                     <form id="form_ajout">
                         <div class="form-group row"><label class="col-sm-2 col-form-label" for="titre">Titre</label>
@@ -90,24 +94,19 @@
                         <div class="form-group row"><label class="col-sm-2 col-form-label" for="prenom_realisateur">Prénom Réalisateur</label>
                         <div class="col-sm-10"><input id="realisateur_prenom" class="form-control-plaintext"  type="text" value="" /></div>
                         </div>
-                        <div class="form-group row"><label class="col-sm-2 col-form-label" for="acteur_nom">Nom acteur</label>
-                        <div class="col-sm-10"><input id="acteur_nom" class="form-control-plaintext"  type="text" value="" /></div>
-                        </div>
-                        <div class="form-group row"><label class="col-sm-2 col-form-label" for="acteur_prenom">Prénom acteur</label>
-                        <div class="col-sm-10"><input id="acteur_prenom" class="form-control-plaintext"  type="text" value="" /></div>
-                        </div>
-                        <a onClick= "ajout_champs_acteur();" id="ajout-acteur-button">+</a>
-                        <div class="acteur_form_nom" class="form-group row"><label class="col-sm-2 col-form-label" for="acteur_ajout_nom">Nom acteur</label>
+                      
+
+                        <div class="form-group row acteur_form_nom" class="form-group row"><label class="col-sm-2 col-form-label" for="acteur_ajout_nom">Nom acteur</label>
                         <div class="col-sm-10"><input class="acteur_ajout_nom" class="form-control-plaintext"  type="text" value="" /></div>
                         </div>
-                        <div class="acteur_form_prenom" class="form-group row"><label class="col-sm-2 col-form-label" for="acteur_ajout_prenom">Prénom acteur</label>
+                        <div class="form-group row acteur_form_prenom" class="form-group row"><label class="col-sm-2 col-form-label" for="acteur_ajout_prenom">Prénom acteur</label>
                         <div class="col-sm-10"><input class="acteur_ajout_prenom" class="form-control-plaintext"  type="text" value="" /></div>
                         </div>
-
-                        <a href="" class="valide-button">Valider</a>
-                    </form> 
+                        <a href="#ajout-acteur-button" onClick= "ajout_champs_acteur();" id="ajout-acteur-button"><i class="fa-solid fa-plus"></i></a>
+                        <a href="" class="valide-button"><i class="fa-solid fa-check"></i></a>
+                    </form>
                     <form id="form_recherche_film">
-                        <h4> Recherche de Film : <button class="recherche-button" data-titre="">Rechercher Film</button> </h4>
+                        <h4> Recherche de Film : <a href="#form_recherche_film" class="recherche-button" data-titre=""><i class="fa-solid fa-magnifying-glass"></i></a> </h4>
                         <div class="form-group row"><label class="col-sm-2 col-form-label" for="titre_recherche">Titre</label>
                         <div class="col-sm-10"><input id="titre_recherche" class="form-control-plaintext"  type="text" value="" /></div>
                         </div>
@@ -125,7 +124,7 @@
                             </tr>
                            <tr>
                                 <td>
-                                    réalisateur : 
+                                    réalisateur :
                                     <tr>
                                         <td>
                                             nom : <span id="recherche_realisateur_nom"></span>
@@ -133,13 +132,51 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            prénom : <span id="recherche_realisateur_prenom"></span> 
+                                            prénom : <span id="recherche_realisateur_prenom"></span>
                                         </td>
                                     </tr>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+                    <form id="form_recherche_acteur">
+                        <h4> Recherche d acteur : <a href="#form_recherche_acteur" class="recherche-acteur-button" data-titre=""><i class="fa-solid fa-magnifying-glass-dollar"></i></a> </h4>
+                        <div class="form-group row"><label class="col-sm-2 col-form-label" for="acteur_recherche">Titre</label>
+                        <div class="col-sm-10"><input id="acteur_recherche" class="form-control-plaintext"  type="text" value="" /></div>
+                        </div>
+                    </form>
+                    <div id="groupe_recherche">
+                        <table class="table duplicat" id="table_recherche_acteur">
+                            <thead>
+                                <tr>
+                                    <td><b> titre : </b><span class="recherche_titre_acteur"></span>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        année : <span class="recherche_annee_acteur"></span>
+                                    </td>
+                                </tr>
+                            <tr>
+                                    <td>
+                                        réalisateur :
+                                        <tr>
+                                            <td>
+                                                nom : <span class="recherche_realisateur_nom_acteur"></span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                prénom : <span class="recherche_realisateur_prenom_acteur"></span>
+                                            </td>
+                                        </tr>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
 
 
 
@@ -147,10 +184,10 @@
                         {% for movie in test %}
                         <thead>
                             <tr>
-                                <td><b> {{movie.titre}} </b><a onClick="open_form_modif(this.id);" id="{{movie.titre}}">Modification</a> <a href="" class="delete-button" data-titre="{{movie.titre}}">Delete</a> </td>
+                                <td><b> {{movie.titre}} </b>   <a href="#titre-form-modif" onClick="open_form_modif(this.id);" id="{{movie.titre}}"><i class="fa-solid fa-pencil"></i></a><a href="#titre-form-modif" onClick="close_eyes(this.id);" id="_{{movie.titre}}">eyes</a><a href="" class="delete-button" data-titre="{{movie.titre}}"><i class="fa-solid fa-trash"></i></a> </td>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id=spy_{{movie.titre}} class="film_tbody" >
                             <tr>
                                 <td>
                                     année : {{movie.annee}}
@@ -158,7 +195,7 @@
                             </tr>
                            <tr>
                                 <td>
-                                    réalisateur : 
+                                    réalisateur :
                                     <tr>
                                         <td>
                                             nom : {{movie.realisateur.nom}}
@@ -173,7 +210,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    acteur : 
+                                    acteur :
                                     {% for acteur in movie.acteurs %}
                                     <tr>
                                         <td>
@@ -188,42 +225,55 @@
                                     {% endfor %}
                                 </td>
                             </tr>
-                            <tr><td><form id="{{movie.titre}}-form-modif" class="modif-form">
-                                <div class="form-group row"><label class="col-sm-2 col-form-label" for="titre_modif_{{movie.titre}}">Titre</label>
-                                <div class="col-sm-10"><input placeholder="{{movie.titre}}" id="titre_modif_{{movie.titre}}" class="form-control-plaintext"  type="text" value="{{movie.titre}}" /></div>
-                                </div>
-                                <div class="form-group row"><label class="col-sm-2 col-form-label" for="annee_modif_{{movie.titre}}">Année</label>
-                                <div class="col-sm-10"><input placeholder={{movie.annee}} id="annee_modif_{{movie.titre}}" class="form-control-plaintext"  type="text" value={{movie.annee}} /></div>
-                                </div>
-                                <div class="form-group row"><label class="col-sm-2 col-form-label" for="realisateur_nom_modif_{{movie.titre}}">Nom Réalisateur</label>
-                                <div class="col-sm-10"><input placeholder={{movie.realisateur.nom}} id="realisateur_nom_modif_{{movie.titre}}" class="form-control-plaintext"  type="text" value={{movie.realisateur.nom}} /></div>
-                                </div>
-                                <div class="form-group row"><label class="col-sm-2 col-form-label" for="prenom_realisateur_modif_{{movie.titre}}">Prénom Réalisateur</label>
-                                <div class="col-sm-10"><input placeholder={{movie.realisateur.prenom}} id="realisateur_prenom_modif_{{movie.titre}}" class="form-control-plaintext"  type="text" value={{movie.realisateur.prenom}} /></div>
-                                </div>
-                                {% for acteur in movie.acteurs %}
-                                <div class="form-group row"><label class="col-sm-2 col-form-label" for="acteur_nom_modif_{{movie.titre}}">Nom acteur</label>
-                                <div class="col-sm-10"><input placeholder={{acteur.nom}} id="acteur_nom_modif_{{movie.titre}}" class="form-control-plaintext"  type="text" value={{acteur.nom}} /></div>
-                                </div>
-                                <div class="form-group row"><label class="col-sm-2 col-form-label" for="acteur_prenom_modif_{{movie.titre}}">Prénom acteur</label>
-                                <div class="col-sm-10"><input placeholder={{acteur.prenom}} id="acteur_prenom_modif_{{movie.titre}}" class="form-control-plaintext"  type="text" value={{acteur.prenom}} /></div>
-                                </div>
-                                {% endfor %}
-                                <a href="" class="modif-button" data-titre="{{movie.titre}}" data-annee={{movie.annee}} data-realisateur-nom={{movie.realisateur.nom}} data-realisateur-prenom={{movie.realisateur.prenom}} {% for acteur in movie.acteurs %} data-nom={{acteur.nom}} data-prenom={{acteur.prenom}} {% endfor %} >Valider</a>
-                            </form> </td></tr>
+                            
                         </tbody>
+                        <tbody>
+                            <tr>
+                            <td>
+                            <form id="{{movie.titre}}-form-modif" class="modif-form">
+                            <div class="form-group row"><label class="col-sm-2 col-form-label" for="titre_modif_{{movie.titre}}">Titre</label>
+                            <div class="col-sm-10"><input placeholder="{{movie.titre}}" id="titre_modif_{{movie.titre}}" class="form-control-plaintext"  type="text" value="{{movie.titre}}" /></div>
+                            </div>
+                            <div class="form-group row"><label class="col-sm-2 col-form-label" for="annee_modif_{{movie.titre}}">Année</label>
+                            <div class="col-sm-10"><input placeholder={{movie.annee}} id="annee_modif_{{movie.titre}}" class="form-control-plaintext"  type="text" value={{movie.annee}} /></div>
+                            </div>
+                            <div class="form-group row"><label class="col-sm-2 col-form-label" for="realisateur_nom_modif_{{movie.titre}}">Nom Réalisateur</label>
+                            <div class="col-sm-10"><input placeholder={{movie.realisateur.nom}} id="realisateur_nom_modif_{{movie.titre}}" class="form-control-plaintext"  type="text" value={{movie.realisateur.nom}} /></div>
+                            </div>
+                            <div class="form-group row"><label class="col-sm-2 col-form-label" for="prenom_realisateur_modif_{{movie.titre}}">Prénom Réalisateur</label>
+                            <div class="col-sm-10"><input placeholder={{movie.realisateur.prenom}} id="realisateur_prenom_modif_{{movie.titre}}" class="form-control-plaintext"  type="text" value={{movie.realisateur.prenom}} /></div>
+                            </div>
+                            {% for acteur in movie.acteurs %}
+                            <div class="form-group row"><label class="col-sm-2 col-form-label" for="acteur_nom_modif_{{movie.titre}}">Nom acteur</label>
+                            <div class="col-sm-10"><input placeholder={{acteur.nom}} id="acteur_nom_modif_{{movie.titre}}" class="form-control-plaintext acteur_id_nom"  type="text" value={{acteur.nom}} /></div>
+                            </div>
+                            <div class="form-group row"><label class="col-sm-2 col-form-label" for="acteur_prenom_modif_{{movie.titre}}">Prénom acteur </label>
+                            <div class="col-sm-10"><input placeholder={{acteur.prenom}} id="acteur_prenom_modif_{{movie.titre}}"  class="form-control-plaintext acteur_id_prenom"  type="text" value={{acteur.prenom}} /></div>
+                            </div>
+                            {% endfor %}
+                            <div class="form-group row"><label class="col-sm-2 col-form-label" for="acteur_nom_modif_{{movie.titre}}">Nom acteur</label>
+                            <div class="col-sm-10"><input id="acteur_nom_modif_{{movie.titre}}" class="form-control-plaintext acteur_id_nom"  type="text" value=></div>
+                            </div>
+                            <div class="form-group row"><label class="col-sm-2 col-form-label" for="acteur_prenom_modif_{{movie.titre}}">Prénom acteur </label>
+                            <div class="col-sm-10"><input id="acteur_prenom_modif_{{movie.titre}}"  class="form-control-plaintext acteur_id_prenom"  type="text" value=></div>
+                            </div>
+                            <a href="" class="modif-button" data-titre="{{movie.titre}}" data-annee={{movie.annee}} data-realisateur-nom={{movie.realisateur.nom}} data-realisateur-prenom={{movie.realisateur.prenom}} {% for acteur in movie.acteurs %} data-nom={{acteur.nom}} data-prenom={{acteur.prenom}} {% endfor %} ><i class="fa-solid fa-check"></i></a>
+                        </form> 
+                        </td>
+                    </tr>
+                </tbody>
                         {% endfor %}
                     </table>
                 {% endblock %}
-                <hr size="12"> 
-                    
-                
+                <hr size="12">
+
+
 
 
                 </div>
                 <!-- Project One Row-->
                 <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
-                   
+
 
 
 
@@ -231,7 +281,7 @@
                 </div>
                 <!-- Project Two Row-->
                 <div class="row gx-0 justify-content-center">
-                    
+
 
 
 
@@ -339,12 +389,12 @@
             $(document).ready(function() {
                 $('.delete-button').click(function(event) {
                     event.preventDefault();
-    
+
                     var titre = $(this).data('titre');
                     var data = {
                         'titre': titre,
                     };
-    
+
                     $.ajax({
                         url: 'http://10.11.5.177:5000/api/v1/film',
                         type: 'DELETE',
@@ -360,10 +410,10 @@
         </script>
         <script>
             function open_form_ajout(){
-                
+
                 form_ajout = document.getElementById('form_ajout')
                 console.log(form_ajout.style.display);
-                if(form_ajout.style.display == 'block'){                
+                if(form_ajout.style.display == 'block'){
                     form_ajout.style.display = 'none';
                 }
                 else{
@@ -375,8 +425,8 @@
             $(document).ready(function() {
                 $('.valide-button').click(function(event) {
                     event.preventDefault();
-    
-                    var titre = $("#titre").val(); 
+
+                    var titre = $("#titre").val();
                     console.log(titre);
                     var annee = $("#annee").val();
                     console.log(annee);
@@ -384,13 +434,9 @@
                     console.log(realisateur_nom);
                     var realisateur_prenom= $("#realisateur_prenom").val();
                     console.log(realisateur_prenom);
-                    //var acteur_nom = $("#acteur_nom").val();
-                    //console.log(acteur_nom);
-                    //var acteur_prenom = $("#acteur_prenom").val();
-                    //console.log(acteur_prenom);
                     var elem_nom = document.getElementsByClassName('acteur_ajout_nom');
                     var elem_prenom = document.getElementsByClassName('acteur_ajout_prenom');
-                    var data = 
+                    var data =
                         {"ajout":{
                             'titre': titre,
                             "annee":annee,
@@ -406,17 +452,18 @@
                     console.log(data["ajout"]["acteurs"]);
                     for(var x=0; x < elem_nom.length; x++)
                     {
-                      acteur = [{
+                      acteur = {
                         "nom" : elem_nom[x].value,
                         "prenom" : elem_prenom[x].value
-                    },
-                ]
-                      console.log(elem_nom[x].value)
-                      console.log(elem_prenom[x].value)
-                      data["ajout"]["acteurs"].append(acteur);
+                      }
+                      data['ajout']['acteurs'].push(acteur);
+
+
+                      console.log(data);
+
                     }
-    
-                    /* $.ajax({
+
+                     $.ajax({
                         url: 'http://10.11.5.177:5000/api/v1/film',
                         type: 'POST',
                         data: JSON.stringify(data),
@@ -425,7 +472,7 @@
                             console.log('Item posted');
                             window.location.reload();
                         }
-                    }); */
+                    });
                 });
             });
         </script>
@@ -433,21 +480,9 @@
             $(document).ready(function() {
                 $('.modif-button').click(function(event) {
                     event.preventDefault();
-    
-                    /* var titre = $(this).data('titre'); 
-                    console.log("titre "+ titre);
-                    var annee = $(this).data('annee');
-                    console.log("annee "+ annee);
-                    var realisateur_nom= $(this).data('realisateur_nom');
-                    console.log("realisateur_nom "+ realisateur_nom);
-                    var realisateur_prenom= $(this).data('realisateur_prenom');
-                    console.log("realisateur_prenom "+ realisateur_prenom);
-                    var acteur_nom = $(this).data('nom');
-                    console.log("acteur_nom "+ acteur_nom);
-                    var acteur_prenom = $(this).data('prenom');
-                    console.log("acteur_prenom "+ acteur_prenom); */
+
                     var titre_modif = $(this).data('titre');
-                    var titre = $("#titre_modif_"+ titre_modif).val(); 
+                    var titre = $("#titre_modif_"+ titre_modif).val();
                     console.log(titre);
                     var annee_modif = $(this).data('annee');
                     var annee = $("#annee_modif_"+ titre_modif).val();
@@ -464,7 +499,7 @@
                     var acteur_prenom_modif = $(this).data('acteur_prenom');
                     var acteur_prenom= $("#acteur_prenom_modif_"+ titre_modif).val();;
                     console.log(acteur_prenom);
-                    var data = 
+                    var data =
                         {"modification":{
                             'titre': titre_modif,
                         },
@@ -472,12 +507,30 @@
                                 'titre': titre,
                                 "annee":annee,
                                 "realisateur":{"nom":realisateur_nom,"prenom":realisateur_prenom},
-                                "acteurs":[{"nom":acteur_nom,"prenom":acteur_prenom}],
+                                "acteurs":[], 
                             },
                         };
 
+                        var acteur_id_nom = document.getElementsByClassName('acteur_id_nom');
+                        var acteur_id_prenom = document.getElementsByClassName('acteur_id_prenom');
+                        var i = 0;
+                        var temp_acteur={}
+                        while (i<acteur_id_nom.length){
+                            if(acteur_id_nom[i].id.includes("acteur_nom_modif_"+ titre_modif) && acteur_id_prenom[i].id.includes("acteur_prenom_modif_"+ titre_modif)){
+                                if (acteur_id_nom[i].value != "" && acteur_id_prenom[i].value != ""){
+                                    var temp_acteur = {
+                                    "nom": acteur_id_nom[i].value,
+                                    "prenom": acteur_id_prenom[i].value,
+                                    } 
+                                    data['data']['acteurs'].push(temp_acteur);
+                                }
+                                
+                            }
+                            i++;
+                        }
+
                     console.log(data);
-    
+
                     $.ajax({
                         url: 'http://10.11.5.177:5000/api/v1/film',
                         type: 'POST',
@@ -495,12 +548,27 @@
             function open_form_modif(id){
                 ident = id + "-form-modif";
                 form_modif = document.getElementById(ident);
+                var spy = document.getElementById('spy_'+id);
                 if(form_modif.style.display == 'block'){
                     form_modif.style.display = 'none';
+                    spy.style.display = 'block';
                 }
                 else{
                     form_modif.style.display = 'block';
-                } 
+                    spy.style.display = 'none';
+                }
+            }
+        </script>
+        <script>
+            function close_eyes(id){
+                ident = "spy" + id;
+                var spy = document.getElementById(ident);
+                if(spy.style.display == 'block'){
+                    spy.style.display = 'none';
+                }
+                else{
+                    spy.style.display = 'block';
+                }
             }
         </script>
        <script>
@@ -509,7 +577,7 @@
                 event.preventDefault();
 
                 var titre = $("#titre_recherche").val();
-                var data = 
+                var data =
                         {"recherche":{
                             'titre': titre,
                         },
@@ -529,7 +597,7 @@
                         document.getElementById('recherche_realisateur_prenom').innerHTML = JSON.parse(result)['realisateur']['prenom'];
                         form_recherche = document.getElementById('table_recherche');
                         form_recherche_tbody = document.getElementById('table_recherche').getElementsByTagName('tbody')[0];
-                        for (const acteur of JSON.parse(result)['acteurs']) { 
+                        for (const acteur of JSON.parse(result)['acteurs']) {
                             let row = form_recherche_tbody.insertRow(0);
                             let cell1 = row.insertCell(0);
                             let cell2 = row.insertCell(1);
@@ -564,7 +632,7 @@
                     success: function(result) {
                         console.log("sup-video")
                         window.location.reload();
-                          
+
                     }
                 });
             });
@@ -577,11 +645,100 @@
             var original_prenom = document.getElementsByClassName('acteur_form_prenom')[0];
             var clone_nom = original_nom.cloneNode(true);
             var clone_prenom = original_prenom.cloneNode(true); // "deep" clone
-            //clone.onclick = ajout_champs_acteur; // event handlers are not cloned
             original_nom.parentNode.appendChild(clone_nom);
             original_prenom.parentNode.appendChild(clone_prenom);
         }
     </script>
+    <script>
+
+        function modif_champs_acteur() {
+            var original_nom = document.getElementsByClassName('acteur_form_nom')[0];
+            var original_prenom = document.getElementsByClassName('acteur_form_prenom')[0];
+            var clone_nom = original_nom.cloneNode(true);
+            var clone_prenom = original_prenom.cloneNode(true); // "deep" clone
+            original_nom.parentNode.appendChild(clone_nom);
+            original_prenom.parentNode.appendChild(clone_prenom);
+        }
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('.recherche-acteur-button').click(function(event) {
+                event.preventDefault();
+
+                var acteur = $("#acteur_recherche").val();
+                var data =
+                        {"recherche":{
+                            'nom_acteur': acteur,
+                        },
+                    };
+                $.ajax({
+                    url: 'http://10.11.5.177:5000/api/v1/film',
+                    type: 'POST',
+                    data: JSON.stringify(data),
+                    contentType: 'application/json',
+                    success: function(result) {
+
+                        document.getElementById('table_recherche_acteur').style.display = 'none';
+                        groupe_recherche = document.getElementById('groupe_recherche');
+                        while (groupe_recherche.childNodes.length > 2) {
+                            groupe_recherche.removeChild(groupe_recherche.lastChild);
+                        }
+                        var i = 0;
+                        console.log("entree boucle")
+                        console.log(document.getElementsByClassName('recherche_titre_acteur'));
+                        console.log(document.getElementsByClassName('recherche_titre_acteur')[0]);
+                        console.log(document.getElementsByClassName('recherche_titre_acteur')[1]);
+                        console.log(document.getElementsByClassName('recherche_titre_acteur')[2]);
+                        console.log(document.getElementsByClassName('recherche_titre_acteur').length);
+                        for (let elem of JSON.parse(result)){
+                            console.log('in');
+                            console.log(elem);
+                            console.log(elem["titre"]);
+                            var ori_id = 'table_recherche_acteur';
+                            var original_table = document.getElementById(ori_id);
+                            var clone_table = original_table.cloneNode(true);
+                            i++;
+                            clone_table.id = ori_id + i;
+                            clone_table.style.display = 'block';
+
+                            original_table.parentNode.insertBefore(clone_table, table_recherche_acteur.nextSibling);
+
+                            console.log(document.getElementsByClassName('recherche_titre_acteur')[1]);
+                            var original_titre = document.getElementsByClassName('recherche_titre_acteur')[1];
+                            var original_annee = document.getElementsByClassName('recherche_annee_acteur')[1];
+                            var original_realisateur_nom = document.getElementsByClassName('recherche_realisateur_nom_acteur')[1];
+                            var original_realisateur_prenom = document.getElementsByClassName('recherche_realisateur_prenom_acteur')[1];
+                            
+
+                            
+                            original_titre.innerHTML = elem["titre"];
+                            original_annee.innerHTML = elem["annee"];
+                            original_realisateur_nom.innerHTML = elem["realisateur"]["nom"];
+                            original_realisateur_prenom.innerHTML = elem["realisateur"]["prenom"];
+                            console.log('Item found');
+                            var original_titre = document.getElementsByClassName('recherche_titre_acteur')[i];
+                            console.log(original_titre);
+                            console.log(elem["titre"]);
+                            console.log(result);
+                        }
+                    console.log(document.getElementsByClassName('recherche_titre_acteur').length);
+                }
+                });
+            });
+        });
+    </script>
+    <script>
+        var acteur_id_nom  = document.getElementsByClassName('acteur_id_nom');
+        var acteur_id_prenom  = document.getElementsByClassName('acteur_id_prenom');
+        var i = 0;
+        console.log(acteur_id_nom.length)
+        while (i<acteur_id_nom.length){
+            acteur_id_nom[i].id = acteur_id_nom[i].id + i;
+            acteur_id_prenom[i].id = acteur_id_prenom[i].id + i;
+            i++;
+        } 
+    </script>
     
+
     </body>
 </html>
