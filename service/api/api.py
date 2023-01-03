@@ -11,7 +11,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-   
+
 @app.route('/api/v1/film',methods=['GET'])
 
 # with referme le fichier
@@ -21,7 +21,7 @@ def movies():
         movies = data['films']
         #return j.dumps(movies,indent=4)
         return movies
-        
+
 @app.route('/api/v1/proprietaire',methods=['GET'])
 
 # with referme le fichier
@@ -51,8 +51,8 @@ def supvideotheque() :
 @app.route('/api/v1/videotheque', methods=['POST'])
 
 def videotheque() :
-    if not (request.is_json and "proprio" in request.json.keys() and "nom" in request.json["proprio"].keys() and "prenom" in request.json["proprio"].keys()) : 
-        abort(400)   
+    if not (request.is_json and "proprio" in request.json.keys() and "nom" in request.json["proprio"].keys() and "prenom" in request.json["proprio"].keys()) :
+        abort(400)
     if os.path.isfile('video.json') :
         abort(409)
     with open('video.json','x') as f :
@@ -64,7 +64,7 @@ def videotheque() :
             "dernere_modif" : datetime.now().strftime('%d/%m/%Y'),
             "films": []
         }
-        
+
         j.dump(dictionaireVideotheque,f,indent=4)
         return 'succes'
 
@@ -73,8 +73,8 @@ def videotheque() :
 def film() :
     if request.is_json and "ajout" in request.json.keys() and "titre" in request.json["ajout"].keys() :
 
-        if not ("annee" in request.json["ajout"].keys() and "realisateur" in request.json["ajout"].keys() and "nom" in request.json["ajout"]["realisateur"].keys() and "prenom" in request.json["ajout"]["realisateur"].keys() and "acteurs" in request.json["ajout"].keys() and all([set(acteur.keys()) == set(["nom","prenom"]) for acteur in request.json["ajout"]["acteurs"]])) : 
-            abort(400)   
+        if not ("annee" in request.json["ajout"].keys() and "realisateur" in request.json["ajout"].keys() and "nom" in request.json["ajout"]["realisateur"].keys() and "prenom" in request.json["ajout"]["realisateur"].keys() and "acteurs" in request.json["ajout"].keys() and all([set(acteur.keys()) == set(["nom","prenom"]) for acteur in request.json["ajout"]["acteurs"]])) :
+            abort(400)
         if not os.path.isfile('video.json') :
             abort(404)
         with open('video.json','r') as f :
@@ -84,12 +84,19 @@ def film() :
             if film["titre"] == request.json["ajout"]["titre"] :
                 abort(400)
         with open('video.json','w') as f :
+            nom_real = request.json["ajout"]["realisateur"]["nom"]
+            prenom_real = request.json["ajout"]["realisateur"]["prenom"]
+            if not nom_real:
+                nom_real = "/"
+            if not prenom_real:
+                prenom_real = "/"
+
             creationFilm = {
                 "titre": request.json["ajout"]["titre"],
                 "annee": request.json["ajout"]["annee"],
                 "realisateur": {
-                    "nom": request.json["ajout"]["realisateur"]["nom"],
-                    "prenom": request.json["ajout"]["realisateur"]["prenom"]
+                    "nom": nom_real,
+                    "prenom": prenom_real
                 },
                 "acteurs": []
             }
@@ -116,7 +123,7 @@ def film() :
         for film in save["films"] :
             for acteur in film["acteurs"] :
                 if acteur["nom"] == request.json["recherche"]["nom_acteur"] :
-                    response.append(film) 
+                    response.append(film)
         if response :
             return j.dumps(response)
         else :
@@ -132,37 +139,37 @@ def film() :
                     if key in request.json["data"].keys() :
                         response[key]=request.json["data"][key]
                     else :
-                        response[key]=film[key]    
+                        response[key]=film[key]
             else :
                 responsetotal.append(film)
         with open('video.json','w') as f :
-            save["dernere_modif"] = datetime.now().strftime('%d/%m/%Y') 
+            save["dernere_modif"] = datetime.now().strftime('%d/%m/%Y')
             save["films"] = responsetotal
             save["films"].append(response)
             j.dump(save,f,indent=4)
             return 'succes'
     else :
-        abort(400)  
+        abort(400)
 
 
 
-@app.route('/api/v1/film', methods=['DELETE']) 
+@app.route('/api/v1/film', methods=['DELETE'])
 
 def supfilm() :
     if not (request.is_json and "titre" in request.json.keys()) :
-        abort(400)   
+        abort(400)
     if not os.path.isfile('video.json') :
         abort(404)
     with open('video.json','r') as f :
         save = j.load(f)
         titre = request.json["titre"]
-    
+
     if titre not in [film['titre'] for film in save['films']] :
         abort(404)
-    
+
     save["dernere_modif"] = datetime.now().strftime('%d/%m/%Y')
     save['films'] = list(filter(lambda f : f ['titre'] != titre, save['films']))
-   
+
     with open('video.json','w') as f :
         j.dump(save,f,indent=4)
         return 'succes'

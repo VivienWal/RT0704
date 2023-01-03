@@ -80,7 +80,7 @@
   }
 }
 
-.modif-form{
+.modif-form,.film_tbody{
   display:none;
 }
 
@@ -339,10 +339,12 @@ th {
   text-align: -webkit-match-parent;
 }
 
-thead,
+tr{
+
+}
+
 tbody,
 tfoot,
-tr,
 td,
 th {
   border-color: inherit;

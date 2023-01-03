@@ -30,8 +30,8 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">A propos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#projects">Créer votre Videotheque</a></li>
                         <li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>
                     </ul>
                 </div>
@@ -44,7 +44,7 @@
                     <div class="text-center">
                         <h1 class="mx-auto my-0 text-uppercase">Videotheque</h1>
                         <h2 class="text-white-50 mx-auto mt-2 mb-5">Venez créer votre propre vidéothèque, partager vos films préférés.</h2>
-                        <a class="btn btn-primary" href="#about">Build your Videotheque</a>
+                        <a class="btn btn-primary" href="#about">Créer votre Videotheque</a>
                     </div>
                 </div>
             </div>
@@ -54,9 +54,9 @@
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8">
-                        <h2 class="text-white mb-4">Build your Videotheque</h2>
+                        <h2 class="text-white mb-4">Créer votre Videotheque</h2>
                         <p class="text-white-50">
-                            Une vidéothèque est une bibliothèque virtuelle ou physique de vidéos. Ici vous pouvez partager vos films préférés au reste du monde, ou tout simplement a vos familles et vos amis.
+                            Une vidéothèque est une bibliothèque virtuelle ou physique de vidéos. Ici vous pouvez partager vos films préférés au reste du monde ou tout simplement à vos familles et vos amis.
                         </p>
                     </div>
                 </div>
@@ -69,15 +69,19 @@
                 <!-- Featured Project Row-->
                 <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
 
-                    <hr style="height:12px;border:none;color:#64A19D" />
-                    <h4> <u>Suppresion Videotheque :</u> &emsp;<a class="sup-video-button" data-titre=""><i class="fa-solid fa-file-excel"></i></a>
-                    <hr style="height:12px;border:none;color:#64A19D" />
 
                 {% block movies %}
-                    <h1>Vidéothèque : {{test2.nom}} {{test2.prenom}}</h1>
-                    <h3>Dernière modification : {{test3}}</h3>
-                    <hr style="height:10px;border:none;color:#64A19D" />
-                    <h4> <u>Ajout de Film :</u> &emsp;<a href="#form_ajout" onclick = "open_form_ajout();" data-titre=""><i class="fa-solid fa-film"></i></a> </h4>
+                    <div class="row mb-5 gx-4 gx-lg-5 d-flex text-center">
+                      <div class="container">
+                      <div class="row justify-content-center">
+
+                        <h1 class="center">Vidéothèque : {{test2.nom}} {{test2.prenom}}</h1>
+                        <h3>Dernière modification : {{test3}}</h3>
+
+                      </div>
+                    </div>
+                    </div>
+                    <h4> Ajout de film : &emsp;<a href="#form_ajout" onclick = "open_form_ajout();" data-titre=""><i class="fa-solid fa-film"></i></a> </h4>
                     <hr style="height:10px;border:none;color:#64A19D" />
                     <form id="form_ajout">
                         <div class="form-group row"><label class="col-sm-2 col-form-label" for="titre"><b><u>Titre :</u></b></label>
@@ -93,29 +97,40 @@
                         <div class="form-group row"><label class="col-sm-2 col-form-label" for="prenom_realisateur"><b>Prénom :</b> </label>
                         <div class="col-sm-10"><input id="realisateur_prenom" type="text" value="" /></div>
                         </div>
-                      
+
                         <u><b>Acteur :</b></u>
-                        <div class="form-group row acteur_form_nom" class="form-group row"><label class="col-sm-2 col-form-label" for="acteur_ajout_nom"><b>Nom :</b></label>
-                        <div class="col-sm-10"><input class="acteur_ajout_nom" type="text" value="" /></div>
+                        <div class="acteur_original">
+                          <div class="form-group row acteur_form_nom" class="form-group row"><label class="col-sm-2 col-form-label" for="acteur_ajout_nom"><b>Nom :</b></label>
+                          <div class="col-sm-10 acteur_nom_div"><input class="acteur_ajout_nom" type="text" value="" /></div>
+                          </div>
+                          <div class="form-group row acteur_form_prenom" class="form-group row"><label class="col-sm-2 col-form-label" for="acteur_ajout_prenom"><b>Prénom :</b></label>
+                          <div class="col-sm-10 acteur_prenom_div"><input class="acteur_ajout_prenom" type="text" value="" /></div>
+                          </div>
                         </div>
-                        <div class="form-group row acteur_form_prenom" class="form-group row"><label class="col-sm-2 col-form-label" for="acteur_ajout_prenom"><b>Prénom :</b></label>
-                        <div class="col-sm-10"><input class="acteur_ajout_prenom" type="text" value="" /></div>
+                        <div class="acteur_bouton_original">
+                          &emsp;<a href="#ajout-acteur-button" onClick= "ajout_champs_acteur();" id="ajout-acteur-button">Ajoutez un acteur</a>
+                          &emsp;<a href="" class="valide-button">Enregistrez votre film</a>
                         </div>
-                        &emsp;<a href="#ajout-acteur-button" onClick= "ajout_champs_acteur();" id="ajout-acteur-button"><i class="fa-solid fa-plus"></i></a>
-                        &emsp;<a href="" class="valide-button"><i class="fa-solid fa-check"></i></a>
                     </form>
                     <form id="form_recherche_film">
-                        <h4> <u>Recherche de Film :</u> &emsp;<a href="#form_recherche_film" class="recherche-button" data-titre=""><i class="fa-solid fa-magnifying-glass"></i></a> </h4>
-                        <div class="form-group row"><label class="col-sm-2 col-form-label" for="titre_recherche"><b><u>Titre :</u></b></label>
-                        <div class="col-sm-10"><input id="titre_recherche" type="text" value="" /></div>
+                      <div class="container">
+                        <div class="row">
+                          <div class="col"><h4>Recherche film :</h4></div>
+                          <div class="col"><input id="titre_recherche" type="text" value="" /></div>
+                          <div class="col"><a href="#form_recherche_film" class="recherche-button" data-titre=""><i class="fa-solid fa-magnifying-glass"></i></a></div>
+                          <div class="col"></div>
+                          <div class="col"></div>
+                        <!-- <div class="form-group row"><label class="col-sm-2 col-form-label" for="titre_recherche"><b><u>Titre :</u></b></label>
+                         -->
                         </div>
+                      </div>
                         <hr style="height:12px;border:none;color:#64A19D" />
                     </form>
                     <table class="table" id="table_recherche">
                         <thead>
                             <tr>
-                                <td><b> 
-                                    
+                                <td><b>
+
                                     <span id="recherche_titre"></span>
                         </thead>
                         <tbody>
@@ -134,7 +149,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <b>prénom :</b> <span id="recherche_realisateur_prenom"></span>
+                                            <b>prenom :</b> <span id="recherche_realisateur_prenom"></span>
                                         </td>
                                     </tr>
                                 </td>
@@ -142,9 +157,14 @@
                         </tbody>
                     </table>
                     <form id="form_recherche_acteur">
-                        <h4> <u>Recherche d acteur :</u> &emsp;<a href="#form_recherche_acteur" class="recherche-acteur-button" data-titre=""><i class="fa-solid fa-magnifying-glass-dollar"></i></a> </h4>
-                        <div class="form-group row"><label class="col-sm-2 col-form-label" for="acteur_recherche"><b><u>Nom :</u></b></label>
-                        <div class="col-sm-10"><input id="acteur_recherche" type="text" value="" /></div>
+                      <div class="container">
+                        <div class="row">
+                          <div class="col"><h4> Recherche acteur : </h4></div>
+                          <div class="col"><input id="acteur_recherche" type="text" value="" /></div>
+                          <div class="col"><a href="#form_recherche_acteur" class="recherche-acteur-button" data-titre=""><i class="fa-solid fa-magnifying-glass-dollar"></i></a></div>
+                          <div class="col"></div>
+                          <div class="col"></div>
+                          </div>
                         </div>
                         <hr style="height:12px;border:none;color:#64A19D" />
                     </form>
@@ -171,7 +191,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <b>prénom :</b> <span class="recherche_realisateur_prenom_acteur"></span>
+                                                <b>prenom :</b> <span class="recherche_realisateur_prenom_acteur"></span>
                                             </td>
                                         </tr>
                                     </td>
@@ -179,7 +199,7 @@
                             </tbody>
                         </table>
                     </div>
-                    
+
 
 
 
@@ -188,10 +208,10 @@
                         {% for movie in test %}
                         <thead>
                             <tr>
-                                <td><b> {{movie.titre}} </b>   &emsp;<a href="#titre-form-modif" onClick="open_form_modif(this.id);" id="{{movie.titre}}"><i class="fa-solid fa-pencil"></i></a>&emsp;<a href="#titre-form-modif" onClick="close_eyes(this.id);" id="_{{movie.titre}}"><i class="fa-solid fa-eye"></i></a>&emsp; <a href="" class="delete-button" data-titre="{{movie.titre}}"><i class="fa-solid fa-trash"></i></a> </td>
+                                <td><b> {{movie.titre}} </b>   &emsp;<a href="#{{movie.titre}}" onClick="open_form_modif(this.id);" id="{{movie.titre}}"><i class="fa-solid fa-pencil"></i></a>&emsp;<a href="#{{movie.titre}}" onClick="close_eyes(this.id);" id="_{{movie.titre}}"><i class="fa-solid fa-eye"></i></a>&emsp; <a href="" class="delete-button" data-titre="{{movie.titre}}"><i class="fa-solid fa-trash"></i></a> </td>
                             </tr>
                         </thead>
-                        <tbody id=spy_{{movie.titre}} class="film_tbody" >
+                        <tbody id='spy_{{movie.titre}}' class="film_tbody" >
                             <tr>
                                 <td>
                                     <b>année :</b> {{movie.annee}}
@@ -202,12 +222,12 @@
                                     <b><u>Réalisateur :</u></b>
                                     <tr>
                                         <td>
-                                            <b>nom :</b> {{movie.realisateur.nom}}
+                                          <b>nom :</b> {{movie.realisateur.nom}}
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <b>prénom :</b> {{movie.realisateur.prenom}}
+                                            <b>prenom :</b> {{movie.realisateur.prenom}}
                                         </td>
                                     </tr>
                                 </td>
@@ -229,12 +249,12 @@
                                     {% endfor %}
                                 </td>
                             </tr>
-                            
+
                         </tbody>
                         <tbody>
                             <tr>
-                            <td>
-                            <form id="{{movie.titre}}-form-modif" class="modif-form">
+                            <td id="{{movie.titre}}-form-modif" class="modif-form">
+                            <form  >
                             <div class="form-group row"><label class="col-sm-2 col-form-label" for="titre_modif_{{movie.titre}}"><b>Titre :</b></label>
                             <div class="col-sm-10"><input placeholder="{{movie.titre}}" id="titre_modif_{{movie.titre}}" type="text" value="{{movie.titre}}" /></div>
                             </div>
@@ -263,15 +283,20 @@
                             <div class="form-group row"><label class="col-sm-2 col-form-label" for="acteur_prenom_modif_{{movie.titre}}">Prénom acteur </label>
                             <div class="col-sm-10"><input id="acteur_prenom_modif_{{movie.titre}}"  class="acteur_id_prenom"  type="text" value=></div>
                             </div>
-                            &emsp;<a href="" class="modif-button" data-titre="{{movie.titre}}" data-annee={{movie.annee}} data-realisateur-nom={{movie.realisateur.nom}} data-realisateur-prenom={{movie.realisateur.prenom}} {% for acteur in movie.acteurs %} data-nom={{acteur.nom}} data-prenom={{acteur.prenom}} {% endfor %} ><i class="fa-solid fa-check"></i></a>
-                        </form> 
+                            &emsp;<a href="" class="modif-button" data-titre="{{movie.titre}}" data-annee={{movie.annee}} data-realisateur-nom={{movie.realisateur.nom}} data-realisateur-prenom={{movie.realisateur.prenom}} {% for acteur in movie.acteurs %} data-nom={{acteur.nom}} data-prenom={{acteur.prenom}} {% endfor %} >Enregistrez votre film</a>
+                        </form>
                         </td>
                     </tr>
                 </tbody>
                         {% endfor %}
                     </table>
+
+
                 {% endblock %}
-                <hr style="height:10px;border:none;color:#64A19D" />
+                <hr style="height:12px;border:none;color:#64A19D" />
+                <h4> <u>Supprimer la Videotheque :</u> &emsp;<a class="sup-video-button" data-titre=""><i class="fa-solid fa-file-excel"></i></a>
+                <hr style="height:12px;border:none;color:#64A19D" />
+
 
 
 
@@ -513,7 +538,7 @@
                                 'titre': titre,
                                 "annee":annee,
                                 "realisateur":{"nom":realisateur_nom,"prenom":realisateur_prenom},
-                                "acteurs":[], 
+                                "acteurs":[],
                             },
                         };
 
@@ -527,10 +552,10 @@
                                     var temp_acteur = {
                                     "nom": acteur_id_nom[i].value,
                                     "prenom": acteur_id_prenom[i].value,
-                                    } 
+                                    }
                                     data['data']['acteurs'].push(temp_acteur);
                                 }
-                                
+
                             }
                             i++;
                         }
@@ -614,7 +639,7 @@
                         }
                         let row = form_recherche_tbody.insertRow(0);
                         let cell1 = row.insertCell(0);
-                        cell1.innerHTML = '<b><u>acteur :</u></b> ';
+                        cell1.innerHTML = '<b><u>Acteur :</u></b> ';
                         if(form_recherche.style.display == 'block'){
                             form_recherche.style.display = 'none';
                         }
@@ -644,20 +669,66 @@
             });
         });
     </script>
-    <script>
+    <!-- <script>
 
         function ajout_champs_acteur() {
+            var form_ajout = document.getElementById('form_ajout');
+            var recherche_film = document.getElementById('form_recherche_film');
             var original_nom = document.getElementsByClassName('acteur_form_nom')[0];
             var original_prenom = document.getElementsByClassName('acteur_form_prenom')[0];
             var clone_nom = original_nom.cloneNode(true);
             var clone_prenom = original_prenom.cloneNode(true); // "deep" clone
-            original_nom.parentNode.appendChild(clone_nom);
-            original_prenom.parentNode.appendChild(clone_prenom);
+
+            acteur_nom = document.getElementsByClassName('acteur_ajout_nom');
+            acteur_nom[acteur_nom.length - 1].setAttribute('onfocus',"this.value=''");
+            acteur_prenom = document.getElementsByClassName('acteur_ajout_prenom');
+            acteur_prenom[acteur_prenom.length - 1].setAttribute('onfocus',"this.value=''");
+
+          //  clone_nom.innerHTML = "eaeaeaeaea";
+            //clone_prenom.innerHTML = "eaeaaeaeaeae";
+            // Insert the new element before the first child
+            test = document.getElementsByClassName(form_ajout);
+            test2 = document.getElementsByClassName(form_ajout);
+            original_nom.parentNode.insertBefore(clone_nom, test[test.length-1].lastChild.nextSibling);
+            original_prenom.parentNode.insertBefore(clone_prenom, test2[test.length-1].lastChild.nextSibling);
+            // original_nom.parentNode.insertBefore(clone_nom, original_prenom.nextSibling);
+            // original_prenom.parentNode.insertBefore(clone_prenom, original_prenom.nextSibling);
+
+
+
+
+
+
+            //document.getElementsByClassName('clone')[0].innerHTML = "sdqdsqdsqsdqs";
+            //original_nom.parentNode.appendChild(clone_nom);
+            //original_prenom.parentNode.appendChild(clone_prenom);
         }
+
+
+
+
+    </script> -->
+
+    <script>
+
+      function resetForm($form) {
+        $form.find('input:text, input:password, input:file, select, textarea').val('');
+      }
+
+      var $blankClone = $('.acteur_original').clone();
+      resetForm($blankClone);
+
+      $(document).on('click', '#ajout-acteur-button', function(e) {
+          e.preventDefault();
+          $blankClone.clone().insertBefore('.acteur_bouton_original');
+      });
+
+
     </script>
     <script>
 
         function modif_champs_acteur() {
+
             var original_nom = document.getElementsByClassName('acteur_form_nom')[0];
             var original_prenom = document.getElementsByClassName('acteur_form_prenom')[0];
             var clone_nom = original_nom.cloneNode(true);
@@ -714,9 +785,9 @@
                             var original_annee = document.getElementsByClassName('recherche_annee_acteur')[1];
                             var original_realisateur_nom = document.getElementsByClassName('recherche_realisateur_nom_acteur')[1];
                             var original_realisateur_prenom = document.getElementsByClassName('recherche_realisateur_prenom_acteur')[1];
-                            
 
-                            
+
+
                             original_titre.innerHTML = elem["titre"];
                             original_annee.innerHTML = elem["annee"];
                             original_realisateur_nom.innerHTML = elem["realisateur"]["nom"];
@@ -742,9 +813,9 @@
             acteur_id_nom[i].id = acteur_id_nom[i].id + i;
             acteur_id_prenom[i].id = acteur_id_prenom[i].id + i;
             i++;
-        } 
+        }
     </script>
-    
+
 
     </body>
 </html>
