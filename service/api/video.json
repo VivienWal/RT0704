@@ -3,6 +3,21 @@
         "nom": "Pouet",
         "prenom": "Poulet"
     },
-    "dernere_modif": "03/01/2023",
-    "films": []
+    "dernere_modif": "04/01/2023",
+    "films": [
+        {
+            "titre": "film sale",
+            "annee": "1990",
+            "realisateur": {
+                "nom": "jean",
+                "prenom": "terrre"
+            },
+            "acteurs": [
+                {
+                    "nom": "Fil",
+                    "prenom": "o'cul"
+                }
+            ]
+        }
+    ]
 }
