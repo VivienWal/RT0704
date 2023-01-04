@@ -134,7 +134,7 @@ def film() :
         response = {}
         responsetotal = []
         for film in save["films"] :
-            if film["titre"] == request.json["modification"]["titre"] :
+            if film["titre"] == request.json["modification"]["titre"].lower() :
                 for key in film :
                     if key in request.json["data"].keys() :
                         response[key]=request.json["data"][key]
