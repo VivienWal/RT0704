@@ -1,13 +1,15 @@
+
+
 {
     "proprietaire": {
         "nom": "Pouet",
         "prenom": "Poulet"
     },
-    "dernere_modif": "04/01/2023",
+    "dernere_modif": "03/01/2023",
     "films": [
         {
-            "titre": "film sale",
-            "annee": "1990",
+            "titre": "test",
+            "annee": "1234",
             "realisateur": {
                 "nom": "jean",
                 "prenom": "terrre"
@@ -15,7 +17,7 @@
             "acteurs": [
                 {
                     "nom": "Fil",
-                    "prenom": "o'cul"
+                    "prenom": "Deterre"
                 }
             ]
         }

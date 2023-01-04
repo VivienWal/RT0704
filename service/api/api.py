@@ -113,7 +113,7 @@ def film() :
             save = j.load(f)
     #boucle pour titre film
         for film in save["films"] :
-            if film["titre"] == request.json["recherche"]["titre"] :
+            if film["titre"].lower() == request.json["recherche"]["titre"].lower() :
                 return j.dumps(film)
         abort(400)
     elif request.is_json and "recherche" in request.json.keys() and "nom_acteur" in request.json["recherche"].keys() :
@@ -122,7 +122,7 @@ def film() :
         response = []
         for film in save["films"] :
             for acteur in film["acteurs"] :
-                if acteur["nom"] == request.json["recherche"]["nom_acteur"] :
+                if acteur["nom"].lower() == request.json["recherche"]["nom_acteur"].lower() :
                     response.append(film)
         if response :
             return j.dumps(response)
