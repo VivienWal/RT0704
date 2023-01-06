@@ -137,7 +137,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <b>année :</b> <span id="recherche_annee"></span>
+                                    <b>Année :</b> <span id="recherche_annee"></span>
                                   </td>
                             </tr>
                            <tr>
@@ -145,12 +145,12 @@
                                     <b><u>Réalisateur :</u></b>
                                     <tr>
                                         <td>
-                                            <b>nom :</b> <span id="recherche_realisateur_nom"></span>
+                                            <b>Nom :</b> <span id="recherche_realisateur_nom"></span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <b>prénom :</b> <span id="recherche_realisateur_prenom"></span>
+                                            <b>Prénom :</b> <span id="recherche_realisateur_prenom"></span>
                                         </td>
                                     </tr>
                                 </td>
@@ -179,7 +179,7 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <b>année :</b> <span class="recherche_annee_acteur"></span>
+                                        <b>Année :</b> <span class="recherche_annee_acteur"></span>
                                     </td>
                                 </tr>
                             <tr>
@@ -187,12 +187,12 @@
                                         <b><u>Réalisateur :</u></b>
                                         <tr>
                                             <td>
-                                                <b>nom :</b> <span class="recherche_realisateur_nom_acteur"></span>
+                                                <b>Nom :</b> <span class="recherche_realisateur_nom_acteur"></span>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <b>prénom :</b> <span class="recherche_realisateur_prenom_acteur"></span>
+                                                <b>Prénom :</b> <span class="recherche_realisateur_prenom_acteur"></span>
                                             </td>
                                         </tr>
                                     </td>
@@ -215,7 +215,7 @@
                         <tbody id='spy_{{movie.titre}}' class="film_tbody" >
                             <tr>
                                 <td>
-                                    <b>année :</b> {{movie.annee}}
+                                    <b>Année :</b> {{movie.annee}}
                                   </td>
                             </tr>
                            <tr>
@@ -223,12 +223,12 @@
                                     <b><u>Réalisateur :</u></b>
                                     <tr>
                                         <td>
-                                          <b>nom :</b> {{movie.realisateur.nom}}
+                                          <b>Nom :</b> {{movie.realisateur.nom}}
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <b>prénom :</b> {{movie.realisateur.prenom}}
+                                            <b>Prénom :</b> {{movie.realisateur.prenom}}
                                         </td>
                                     </tr>
                                 </td>
@@ -239,12 +239,12 @@
                                     {% for acteur in movie.acteurs %}
                                     <tr>
                                         <td>
-                                            <b>nom :</b> {{acteur.nom}}
+                                            <b>Nom :</b> {{acteur.nom}}
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <b>prénom :</b> {{acteur.prenom}}
+                                            <b>Prénom :</b> {{acteur.prenom}}
                                         </td>
                                     </tr>
                                     {% endfor %}
@@ -291,32 +291,19 @@
                 </tbody>
                         {% endfor %}
                     </table>
-
-
                 {% endblock %}
+
                 <hr style="height:12px;border:none;color:#64A19D" />
-                <h4> <u>Supprimer la Videotheque :</u> &emsp;<a href="http://10.11.5.177:56733/#page-top" class="sup-video-button" data-titre=""><i class="fa-solid fa-file-excel"></i></a>
+                <h4> <u>Supprimer la Vidéothèque :</u> &emsp;<a href="http://10.11.5.177:56733/#page-top" class="sup-video-button" data-titre=""><i class="fa-solid fa-file-excel"></i></a>
                 <hr style="height:12px;border:none;color:#64A19D" />
-
-
-
-
-
                 </div>
+
                 <!-- Project One Row-->
                 <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
-
-
-
-
-
                 </div>
+
                 <!-- Project Two Row-->
                 <div class="row gx-0 justify-content-center">
-
-
-
-
                 </div>
             </div>
         </section>
@@ -326,7 +313,7 @@
                 <div class="row gx-4 gx-lg-5">
                     <div class="col-md-10 col-lg-8 mx-auto text-center">
                         <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-                        <h2 class="text-white mb-5">Subscribe to receive updates!</h2>
+                        <h2 class="text-white mb-5">Suivez pour recevoir les modifications!</h2>
                         <!-- * * * * * * * * * * * * * * *-->
                         <!-- * * SB Forms Contact Form * *-->
                         <!-- * * * * * * * * * * * * * * *-->
@@ -337,28 +324,28 @@
                         <form class="form-signup" id="contactForm" data-sb-form-api-token="API_TOKEN">
                             <!-- Email address input-->
                             <div class="row input-group-newsletter">
-                                <div class="col"><input class="form-control" id="emailAddress" type="email" placeholder="Enter email address..." aria-label="Enter email address..." data-sb-validations="required,email" /></div>
+                                <div class="col"><input class="form-control" id="emailAddress" type="email" placeholder="Entrez votre adresse mail..." aria-label="Entrez votre adresse mail..." data-sb-validations="required,email" /></div>
                                 <div class="col-auto"><button class="btn btn-primary disabled" id="submitButton" type="submit">Notify Me!</button></div>
                             </div>
-                            <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:required">An email is required.</div>
-                            <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:email">Email is not valid.</div>
+                            <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:required">Un Email est requit.</div>
+                            <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:email">Votre Email n'est pas valide.</div>
                             <!-- Submit success message-->
                             <!---->
                             <!-- This is what your users will see when the form-->
                             <!-- has successfully submitted-->
                             <div class="d-none" id="submitSuccessMessage">
                                 <div class="text-center mb-3 mt-2 text-white">
-                                    <div class="fw-bolder">Form submission successful!</div>
-                                    To activate this form, sign up at
+                                    <div class="fw-bolder">Vous suivez cette vidéothèque!</div>
+                                    Pour activer ce formulaire, inscrivez-vous sur
                                     <br />
-                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                    <a href="http://10.11.5.177:56733/">Cette magnifique Vidéothèque</a>
                                 </div>
                             </div>
                             <!-- Submit error message-->
                             <!---->
                             <!-- This is what your users will see when there is-->
                             <!-- an error submitting the form-->
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3 mt-2">Error sending message!</div></div>
+                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3 mt-2">Erreur!</div></div>
                         </form>
                     </div>
                 </div>
@@ -372,9 +359,9 @@
                         <div class="card py-4 h-100">
                             <div class="card-body text-center">
                                 <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Address</h4>
+                                <h4 class="text-uppercase m-0">Addresse</h4>
                                 <hr class="my-4 mx-auto" />
-                                <div class="small text-black-50">4923 Market Street, Orlando FL</div>
+                                <div class="small text-black-50">Reims</div>
                             </div>
                         </div>
                     </div>
@@ -384,7 +371,7 @@
                                 <i class="fas fa-envelope text-primary mb-2"></i>
                                 <h4 class="text-uppercase m-0">Email</h4>
                                 <hr class="my-4 mx-auto" />
-                                <div class="small text-black-50"><a href="#!">hello@yourdomain.com</a></div>
+                                <div class="small text-black-50"><a href="#!">votre@videotheque.com</a></div>
                             </div>
                         </div>
                     </div>
@@ -392,9 +379,9 @@
                         <div class="card py-4 h-100">
                             <div class="card-body text-center">
                                 <i class="fas fa-mobile-alt text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Phone</h4>
+                                <h4 class="text-uppercase m-0">Téléphone</h4>
                                 <hr class="my-4 mx-auto" />
-                                <div class="small text-black-50">+1 (555) 902-8832</div>
+                                <div class="small text-black-50">06.00.00.00.00</div>
                             </div>
                         </div>
                     </div>
@@ -407,7 +394,7 @@
             </div>
         </section>
         <!-- Footer-->
-        <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Your Website 2022</div></footer>
+        <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; votre Vidéothèque</div></footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
@@ -421,19 +408,16 @@
             $(document).ready(function() {
                 $('.delete-button').click(function(event) {
                     event.preventDefault();
-
                     var titre = $(this).data('titre');
                     var data = {
                         'titre': titre,
                     };
-
                     $.ajax({
                         url: 'http://10.11.5.177:5000/api/v1/film',
                         type: 'DELETE',
                         data: JSON.stringify(data),
                         contentType: 'application/json',
                         success: function(result) {
-                            console.log('Item deleted');
                             window.location.reload();
                         }
                     });
@@ -444,7 +428,6 @@
             function open_form_ajout(){
 
                 form_ajout = document.getElementById('form_ajout')
-                console.log(form_ajout.style.display);
                 if(form_ajout.style.display == 'block'){
                     form_ajout.style.display = 'none';
                 }
@@ -457,15 +440,10 @@
             $(document).ready(function() {
                 $('.valide-button').click(function(event) {
                     event.preventDefault();
-
                     var titre = $("#titre").val();
-                    console.log(titre);
                     var annee = $("#annee").val();
-                    console.log(annee);
                     var realisateur_nom= $("#realisateur_nom").val();
-                    console.log(realisateur_nom);
                     var realisateur_prenom= $("#realisateur_prenom").val();
-                    console.log(realisateur_prenom);
                     var elem_nom = document.getElementsByClassName('acteur_ajout_nom');
                     var elem_prenom = document.getElementsByClassName('acteur_ajout_prenom');
                     var data =
@@ -478,10 +456,6 @@
                             },
                             "acteurs":[]}
                         };
-                    console.log("test");
-                    console.log(data);
-                    console.log("test2");
-                    console.log(data["ajout"]["acteurs"]);
                     for(var x=0; x < elem_nom.length; x++)
                     {
                       acteur = {
@@ -489,19 +463,13 @@
                         "prenom" : elem_prenom[x].value
                       }
                       data['ajout']['acteurs'].push(acteur);
-
-
-                      console.log(data);
-
                     }
-
                      $.ajax({
                         url: 'http://10.11.5.177:5000/api/v1/film',
                         type: 'POST',
                         data: JSON.stringify(data),
                         contentType: 'application/json',
                         success: function(result) {
-                            console.log('Item posted');
                             window.location.reload();
                         }
                     });
@@ -512,25 +480,18 @@
             $(document).ready(function() {
                 $('.modif-button').click(function(event) {
                     event.preventDefault();
-
                     var titre_modif = $(this).data('titre');
                     var titre = $("#titre_modif_"+ titre_modif).val();
-                    console.log(titre);
                     var annee_modif = $(this).data('annee');
                     var annee = $("#annee_modif_"+ titre_modif).val();
-                    console.log(annee);
                     var realisateur_nom_modif = $(this).data('realisateur_nom');
                     var realisateur_nom= $("#realisateur_nom_modif_"+ titre_modif).val();
-                    console.log('realisateur_nom'+ realisateur_nom);
                     var realisateur_prenom_modif = $(this).data('realisateur_prenom');
                     var realisateur_prenom= $("#realisateur_prenom_modif_"+ titre_modif).val();
-                    console.log('realisateur_prenom'+ realisateur_prenom);
                     var acteur_nom_modif = $(this).data('acteur_nom');
                     var acteur_nom= $("#acteur_nom_modif_"+ titre_modif).val();
-                    console.log(acteur_nom);
                     var acteur_prenom_modif = $(this).data('acteur_prenom');
                     var acteur_prenom= $("#acteur_prenom_modif_"+ titre_modif).val();;
-                    console.log(acteur_prenom);
                     var data =
                         {"modification":{
                             'titre': titre_modif,
@@ -542,7 +503,6 @@
                                 "acteurs":[],
                             },
                         };
-
                         var acteur_id_nom = document.getElementsByClassName('acteur_id_nom');
                         var acteur_id_prenom = document.getElementsByClassName('acteur_id_prenom');
                         var i = 0;
@@ -556,20 +516,15 @@
                                     }
                                     data['data']['acteurs'].push(temp_acteur);
                                 }
-
                             }
                             i++;
                         }
-
-                    console.log(data);
-
                     $.ajax({
                         url: 'http://10.11.5.177:5000/api/v1/film',
                         type: 'POST',
                         data: JSON.stringify(data),
                         contentType: 'application/json',
                         success: function(result) {
-                            console.log('Item posted');
                             window.location.reload();
                         }
                     });
@@ -620,9 +575,6 @@
                     data: JSON.stringify(data),
                     contentType: 'application/json',
                     success: function(result) {
-                        console.log('Item found');
-                        console.log(result);
-                        console.log(JSON.parse(result)['titre']);
                         document.getElementById('recherche_titre').innerHTML = JSON.parse(result)['titre'];
                         document.getElementById('recherche_annee').innerHTML = JSON.parse(result)['annee'];
                         document.getElementById('recherche_realisateur_nom').innerHTML = JSON.parse(result)['realisateur']['nom'];
@@ -633,10 +585,8 @@
                             let row = form_recherche_tbody.insertRow(0);
                             let cell1 = row.insertCell(0);
                             let cell2 = row.insertCell(1);
-                            cell1.innerHTML = '<b>nom :</b> ' + acteur['nom'];
-                            cell2.innerHTML = '<b>prénom :</b> ' + acteur['prenom'];
-                            console.log(acteur['nom']);
-                            console.log(acteur['prenom']);
+                            cell1.innerHTML = '<b>Nom :</b> ' + acteur['nom'];
+                            cell2.innerHTML = '<b>Prénom :</b> ' + acteur['prenom'];
                         }
                         let row = form_recherche_tbody.insertRow(0);
                         let cell1 = row.insertCell(0);
@@ -656,80 +606,30 @@
         $(document).ready(function() {
             $('.sup-video-button').click(function(event) {
                 event.preventDefault();
-
                 $.ajax({
                     url: 'http://10.11.5.177:5000/api/v1/supvideotheque',
                     type: 'DELETE',
                     contentType: 'application/json',
                     success: function(result) {
-                        console.log("sup-video")
                         window.location.reload();
-
                     }
                 });
             });
         });
     </script>
-    <!-- <script>
-
-        function ajout_champs_acteur() {
-            var form_ajout = document.getElementById('form_ajout');
-            var recherche_film = document.getElementById('form_recherche_film');
-            var original_nom = document.getElementsByClassName('acteur_form_nom')[0];
-            var original_prenom = document.getElementsByClassName('acteur_form_prenom')[0];
-            var clone_nom = original_nom.cloneNode(true);
-            var clone_prenom = original_prenom.cloneNode(true); // "deep" clone
-
-            acteur_nom = document.getElementsByClassName('acteur_ajout_nom');
-            acteur_nom[acteur_nom.length - 1].setAttribute('onfocus',"this.value=''");
-            acteur_prenom = document.getElementsByClassName('acteur_ajout_prenom');
-            acteur_prenom[acteur_prenom.length - 1].setAttribute('onfocus',"this.value=''");
-
-          //  clone_nom.innerHTML = "eaeaeaeaea";
-            //clone_prenom.innerHTML = "eaeaaeaeaeae";
-            // Insert the new element before the first child
-            test = document.getElementsByClassName(form_ajout);
-            test2 = document.getElementsByClassName(form_ajout);
-            original_nom.parentNode.insertBefore(clone_nom, test[test.length-1].lastChild.nextSibling);
-            original_prenom.parentNode.insertBefore(clone_prenom, test2[test.length-1].lastChild.nextSibling);
-            // original_nom.parentNode.insertBefore(clone_nom, original_prenom.nextSibling);
-            // original_prenom.parentNode.insertBefore(clone_prenom, original_prenom.nextSibling);
-
-
-
-
-
-
-            //document.getElementsByClassName('clone')[0].innerHTML = "sdqdsqdsqsdqs";
-            //original_nom.parentNode.appendChild(clone_nom);
-            //original_prenom.parentNode.appendChild(clone_prenom);
-        }
-
-
-
-
-    </script> -->
-
     <script>
-
       function resetForm($form) {
         $form.find('input:text, input:password, input:file, select, textarea').val('');
       }
-
       var $blankClone = $('.acteur_original').clone();
       resetForm($blankClone);
-
       $(document).on('click', '#ajout-acteur-button', function(e) {
           e.preventDefault();
           $blankClone.clone().insertBefore('.acteur_bouton_original');
       });
-
-
     </script>
     <script>
-
         function modif_champs_acteur() {
-
             var original_nom = document.getElementsByClassName('acteur_form_nom')[0];
             var original_prenom = document.getElementsByClassName('acteur_form_prenom')[0];
             var clone_nom = original_nom.cloneNode(true);
@@ -755,51 +655,30 @@
                     data: JSON.stringify(data),
                     contentType: 'application/json',
                     success: function(result) {
-
                         document.getElementById('table_recherche_acteur').style.display = 'none';
                         groupe_recherche = document.getElementById('groupe_recherche');
                         while (groupe_recherche.childNodes.length > 2) {
                             groupe_recherche.removeChild(groupe_recherche.lastChild);
                         }
                         var i = 0;
-                        console.log("entree boucle")
-                        console.log(document.getElementsByClassName('recherche_titre_acteur'));
-                        console.log(document.getElementsByClassName('recherche_titre_acteur')[0]);
-                        console.log(document.getElementsByClassName('recherche_titre_acteur')[1]);
-                        console.log(document.getElementsByClassName('recherche_titre_acteur')[2]);
-                        console.log(document.getElementsByClassName('recherche_titre_acteur').length);
                         for (let elem of JSON.parse(result)){
-                            console.log('in');
-                            console.log(elem);
-                            console.log(elem["titre"]);
                             var ori_id = 'table_recherche_acteur';
                             var original_table = document.getElementById(ori_id);
                             var clone_table = original_table.cloneNode(true);
                             i++;
                             clone_table.id = ori_id + i;
                             clone_table.style.display = 'block';
-
                             original_table.parentNode.insertBefore(clone_table, table_recherche_acteur.nextSibling);
-
-                            console.log(document.getElementsByClassName('recherche_titre_acteur')[1]);
                             var original_titre = document.getElementsByClassName('recherche_titre_acteur')[1];
                             var original_annee = document.getElementsByClassName('recherche_annee_acteur')[1];
                             var original_realisateur_nom = document.getElementsByClassName('recherche_realisateur_nom_acteur')[1];
                             var original_realisateur_prenom = document.getElementsByClassName('recherche_realisateur_prenom_acteur')[1];
-
-
-
                             original_titre.innerHTML = elem["titre"];
                             original_annee.innerHTML = elem["annee"];
                             original_realisateur_nom.innerHTML = elem["realisateur"]["nom"];
                             original_realisateur_prenom.innerHTML = elem["realisateur"]["prenom"];
-                            console.log('Item found');
                             var original_titre = document.getElementsByClassName('recherche_titre_acteur')[i];
-                            console.log(original_titre);
-                            console.log(elem["titre"]);
-                            console.log(result);
                         }
-                    console.log(document.getElementsByClassName('recherche_titre_acteur').length);
                 }
                 });
             });
@@ -809,7 +688,6 @@
         var acteur_id_nom  = document.getElementsByClassName('acteur_id_nom');
         var acteur_id_prenom  = document.getElementsByClassName('acteur_id_prenom');
         var i = 0;
-        console.log(acteur_id_nom.length)
         while (i<acteur_id_nom.length){
             acteur_id_nom[i].id = acteur_id_nom[i].id + i;
             acteur_id_prenom[i].id = acteur_id_prenom[i].id + i;
