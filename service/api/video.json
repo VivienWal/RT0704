@@ -22,6 +22,24 @@
                     "prenom": "minou"
                 }
             ]
+        },
+        {
+            "titre": "test1",
+            "annee": "2008",
+            "realisateur": {
+                "nom": "dubien",
+                "prenom": "bonjour"
+            },
+            "acteurs": [
+                {
+                    "nom": "tam",
+                    "prenom": "tamounet"
+                },
+                {
+                    "nom": "mignon",
+                    "prenom": "minou"
+                }
+            ]
         }
     ]
 }
