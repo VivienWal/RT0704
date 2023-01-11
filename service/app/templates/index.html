@@ -168,7 +168,7 @@
                           <div class="col"></div>
                           </div>
                           <hr style="height:12px;border:none;color:#64A19D" />
-                        </div> 
+                        </div>
                     </form>
                     <div id="groupe_recherche">
                         <table class="table duplicat" id="table_recherche_acteur">
@@ -579,22 +579,30 @@
                         document.getElementById('recherche_realisateur_prenom').innerHTML = JSON.parse(result)['realisateur']['prenom'];
                         form_recherche = document.getElementById('table_recherche');
                         form_recherche_tbody = document.getElementById('table_recherche').getElementsByTagName('tbody')[0];
-                        for (const acteur of JSON.parse(result)['acteurs']) {
-                            let row = form_recherche_tbody.insertRow(0);
-                            let cell1 = row.insertCell(0);
-                            let cell2 = row.insertCell(1);
-                            cell1.innerHTML = '<b>Nom :</b> ' + acteur['nom'];
-                            cell2.innerHTML = '<b>Prénom :</b> ' + acteur['prenom'];
-                        }
-                        let row = form_recherche_tbody.insertRow(0);
-                        let cell1 = row.insertCell(0);
-                        cell1.innerHTML = '<b><u>Acteur :</u></b> ';
-                        
+
                         if(form_recherche.style.display == 'block'){
                             form_recherche.style.display = 'none';
+                            const boxes = document.querySelectorAll('.rowToDelete');
+
+                            boxes.forEach(box => {
+                              box.remove();
+                            });
+
                         }
                         else{
-                            form_recherche.style.display = 'block';
+                          for (const acteur of JSON.parse(result)['acteurs']) {
+                              let row = form_recherche_tbody.insertRow(0);
+                              row.classList.add("rowToDelete");
+                              let cell1 = row.insertCell(0);
+                              let cell2 = row.insertCell(1);
+                              cell1.innerHTML = '<b>Nom :</b> ' + acteur['nom'];
+                              cell2.innerHTML = '<b>Prénom :</b> ' + acteur['prenom'];
+                          }
+                          let row = form_recherche_tbody.insertRow(0);
+                          row.classList.add("rowToDelete");
+                          let cell1 = row.insertCell(0);
+                          cell1.innerHTML = '<b><u>Acteur :</u></b> ';
+                          form_recherche.style.display = 'block';
                         }
                     }
                 });
