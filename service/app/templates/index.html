@@ -137,7 +137,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <b>Année :</b> <span id="recherche_annee"></span>
+                                    <b><u>Année :</u></b> <span id="recherche_annee"></span>
                                   </td>
                             </tr>
                            <tr>
@@ -255,17 +255,17 @@
                             <td id="{{movie.titre}}-form-modif" class="modif-form">
                             <form  >
                             <div class="form-group row"><label class="col-sm-2 col-form-label" for="titre_modif_{{movie.titre}}"><b>Titre :</b></label>
-                            <div class="col-sm-10"><input placeholder="{{movie.titre}}" id="titre_modif_{{movie.titre}}" type="text" value="{{movie.titre}}" /></div>
+                            <div class="col-sm-10"><input placeholder="{{movie.titre}}" class="titre_modif" id="titre_modif_{{movie.titre}}" type="text" value="{{movie.titre}}" /></div>
                             </div>
                             <div class="form-group row"><label class="col-sm-2 col-form-label" for="annee_modif_{{movie.titre}}"><b>Année</b></label>
-                            <div class="col-sm-10"><input placeholder={{movie.annee}} id="annee_modif_{{movie.titre}}" type="text" value={{movie.annee}} /></div>
+                            <div class="col-sm-10"><input placeholder={{movie.annee}} class="annee_modif" id="annee_modif_{{movie.titre}}" type="text" value={{movie.annee}} /></div>
                             </div>
                             <b><u>Réalisateur :</u></b>
                             <div class="form-group row"><label class="col-sm-2 col-form-label" for="realisateur_nom_modif_{{movie.titre}}"><b>Nom :</b></label>
-                            <div class="col-sm-10"><input placeholder={{movie.realisateur.nom}} id="realisateur_nom_modif_{{movie.titre}}" type="text" value={{movie.realisateur.nom}} /></div>
+                            <div class="col-sm-10"><input placeholder={{movie.realisateur.nom}} class="realisateur_nom_modif" id="realisateur_nom_modif_{{movie.titre}}" type="text" value={{movie.realisateur.nom}} /></div>
                             </div>
                             <div class="form-group row"><label class="col-sm-2 col-form-label" for="prenom_realisateur_modif_{{movie.titre}}"><b>Prénom :</b></label>
-                            <div class="col-sm-10"><input placeholder={{movie.realisateur.prenom}} id="realisateur_prenom_modif_{{movie.titre}}" type="text" value={{movie.realisateur.prenom}} /></div>
+                            <div class="col-sm-10"><input placeholder={{movie.realisateur.prenom}} class="realisateur_prenom_modif" id="realisateur_prenom_modif_{{movie.titre}}" type="text" value={{movie.realisateur.prenom}} /></div>
                             </div>
                             <b><u>Acteur :</u></b>
                             {% for acteur in movie.acteurs %}
@@ -282,7 +282,7 @@
                             <div class="form-group row"><label class="col-sm-2 col-form-label" for="acteur_prenom_modif_{{movie.titre}}"><b>Prénom :</b> </label>
                             <div class="col-sm-10"><input id="acteur_prenom_modif_{{movie.titre}}"  class="acteur_id_prenom"  type="text" value=></div>
                             </div>
-                            &emsp;<a href="" class="modif-button" data-titre="{{movie.titre}}" data-annee={{movie.annee}} data-realisateur-nom={{movie.realisateur.nom}} data-realisateur-prenom={{movie.realisateur.prenom}} {% for acteur in movie.acteurs %} data-nom={{acteur.nom}} data-prenom={{acteur.prenom}} {% endfor %} >Enregistrez votre film</a>
+                            &emsp;<a href="" class="modif-button" data-titre="{{movie.titre}}" data-annee="{{movie.annee}}" data-realisateur-nom="{{movie.realisateur.nom}}" data-realisateur-prenom="{{movie.realisateur.prenom}}" {% for acteur in movie.acteurs %} data-nom="{{acteur.nom}}" data-prenom="{{acteur.prenom}}" {% endfor %} >Enregistrez votre film</a>
                         </form>
                         </td>
                     </tr>
@@ -478,8 +478,12 @@
             $(document).ready(function() {
                 $('.modif-button').click(function(event) {
                     event.preventDefault();
-                    var titre_modif = $(this).data('titre');
+
+
+                    var titre_modif = $(this).data('titre').replace(/ /g,"_");
                     var titre = $("#titre_modif_"+ titre_modif).val();
+                    console.log(titre_modif);
+                    console.log(titre);
                     var annee_modif = $(this).data('annee');
                     var annee = $("#annee_modif_"+ titre_modif).val();
                     var realisateur_nom_modif = $(this).data('realisateur_nom');
@@ -489,18 +493,19 @@
                     var acteur_nom_modif = $(this).data('acteur_nom');
                     var acteur_nom= $("#acteur_nom_modif_"+ titre_modif).val();
                     var acteur_prenom_modif = $(this).data('acteur_prenom');
-                    var acteur_prenom= $("#acteur_prenom_modif_"+ titre_modif).val();;
+                    var acteur_prenom= $("#acteur_prenom_modif_"+ titre_modif).val();
                     var data =
                         {"modification":{
-                            'titre': titre_modif,
+                            'titre': titre_modif.replace(/_/g," ")
                         },
                             "data":{
                                 'titre': titre,
                                 "annee":annee,
                                 "realisateur":{"nom":realisateur_nom,"prenom":realisateur_prenom},
                                 "acteurs":[],
-                            },
+                            }
                         };
+                        console.log(data);
                         var acteur_id_nom = document.getElementsByClassName('acteur_id_nom');
                         var acteur_id_prenom = document.getElementsByClassName('acteur_id_prenom');
                         var i = 0;
@@ -517,6 +522,7 @@
                             }
                             i++;
                         }
+                        console.log(data);
                     $.ajax({
                         url: 'http://10.11.5.177:5000/api/v1/film',
                         type: 'POST',
@@ -696,8 +702,21 @@
         var acteur_id_prenom  = document.getElementsByClassName('acteur_id_prenom');
         var i = 0;
         while (i<acteur_id_nom.length){
-            acteur_id_nom[i].id = acteur_id_nom[i].id + i;
-            acteur_id_prenom[i].id = acteur_id_prenom[i].id + i;
+            acteur_id_nom[i].id = acteur_id_nom[i].id.replace(/ /g,"_") + i;
+            acteur_id_prenom[i].id = acteur_id_prenom[i].id.replace(/ /g,"_") + i;
+            i++;
+        }
+
+        var i = 0;
+        var titre_modif = document.getElementsByClassName('titre_modif');
+        var annee_modif = document.getElementsByClassName('annee_modif');
+        var realisateur_nom_modif = document.getElementsByClassName('realisateur_nom_modif');
+        var realisateur_prenom_modif = document.getElementsByClassName('realisateur_prenom_modif');
+        while (i<titre_modif.length){
+            titre_modif[i].id = titre_modif[i].id.replace(/ /g,"_");
+            annee_modif[i].id = annee_modif[i].id.replace(/ /g,"_");
+            realisateur_nom_modif[i].id = realisateur_nom_modif[i].id.replace(/ /g,"_");
+            realisateur_prenom_modif[i].id = realisateur_prenom_modif[i].id.replace(/ /g,"_");
             i++;
         }
     </script>
